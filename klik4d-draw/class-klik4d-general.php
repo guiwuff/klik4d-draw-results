@@ -46,7 +46,14 @@ class Klik4d_Draw {
 	    
 	    curl_close($ch);  // clode
 		
-
+		$data = array(
+			$content,
+			$err,
+			$errmsg,
+			$header
+		);
+		
+		return $data;
 				
 	}	
 }

@@ -6,5 +6,7 @@ require_once('class-klik4d-general.php');
 
 // Construct
 $fetchdata = new Klik4d_Draw();
-$fetchdata->update_data();
+$data = $fetchdata->update_data();
+
+var_dump($data);
 ?>
