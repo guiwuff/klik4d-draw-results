@@ -1,14 +1,14 @@
 <?php
 /*
-Plugin Name: Klik4D Draw Results
-Plugin URI:  https://github.com/guiwuff/klik4d-draw-results
+Plugin Name: Klik4D Draw
+Plugin URI:  https://github.com/guiwuff/wp-klik4d-draw
 Description: A Wordpress plugin to fetch and store Klik4D Draw Results. Displayed via template tags.
-Version:     0.1.0-alpha
+Version:     0.1.0-alpha (0.1.0a)
 Author:      GUI Wuff <gui.wuff@gmail.com>
 Author URI:  https://github.com/guiwuff/
 License:     MIT	
-License URI: https://github.com/guiwuff/klik4d-draw-results/blob/master/LICENSE
-Text Domain: klik4d
+License URI: https://github.com/guiwuff/wp-klik4d-draw/blob/master/LICENSE
+Text Domain: klik4d_draw
 Domain Path: /languages
 */
 
@@ -17,12 +17,14 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-/**
- * The code that runs during plugin activation.
- * This action is documented in includes/class-plugin-name-activator.php
- */
+// Plugin version
+if( !defined( 'KLIK4D_VER' ) )
+	define( 'KLIK4D', '0.1.0a' );
+	
+// Class file
+require_once plugin_dir_path( __FILE__ ) . 'class-klik4d-draw.php';
+
 function activate_klik4d() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-klik4d-activator.php';
 	Klik4d_Activator::activate();
 }
 
