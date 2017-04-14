@@ -109,7 +109,7 @@ class Klik4d {
 
 		$plugin_i18n = new Klik4d_i18n();
 
-		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_klik4d' );
+		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
 
 	}
 
