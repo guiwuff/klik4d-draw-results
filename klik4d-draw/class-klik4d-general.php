@@ -46,7 +46,7 @@ class Klik4d_Draw {
 	    
 	    curl_close($ch);  // clode
 		
-
+		
 				
 	}	
 }
