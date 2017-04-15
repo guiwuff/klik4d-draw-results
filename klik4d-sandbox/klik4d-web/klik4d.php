@@ -7,11 +7,7 @@
 
     $drawResult = $klik4d->get_result();
 
-    var_dump($drawResult[3]);
+    echo $drawResult;
 
-    echo "<hr>";
-    echo $drawResult[1];
-    echo "<hr>";
-    echo $drawResult[2];
 
 ?>
