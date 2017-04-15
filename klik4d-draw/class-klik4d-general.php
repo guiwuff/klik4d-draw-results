@@ -46,6 +46,9 @@ class Klik4d_Draw {
 	    
 	    curl_close($ch);  // clode
 		
+<<<<<<< HEAD
+		
+=======
 		$data = array(
 			$content,
 			$err,
@@ -54,6 +57,7 @@ class Klik4d_Draw {
 		);
 		
 		return $data;
+>>>>>>> b76a2e104a65ffd07699ad7ab5ed6fc41a15d25e
 				
 	}	
 }
