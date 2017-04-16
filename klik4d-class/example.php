@@ -12,14 +12,22 @@
 // can use $url and get the array using the same command
 // json_decode() and file_get_contents
 
+//function to convert unixtime to readable timestring GMT +7
+function timereadable($unixtime) {
+    $date = new DateTime();
+    $date->setTimestamp($unixtime);
+    $date->setTimezone(new DateTimeZone('Asia/Jakarta'));
+    $readable["full"] = $date->format('d/m/Y G:H:i');
+    $readable["date"] = $date->format('d/m/Y');
+    return $readable;
+}
+
 $url = 'klik4d-draw.json';
 // example if different folder, using url
 // $url = 'http://www.domain.com/klik4d/klik4d-draw.json''
 $drawResult = json_decode(file_get_contents($url), true);
-$date = new DateTime();
-$date->setTimestamp($drawResult["lastUpdated"]);
-$date->setTimezone(new DateTimeZone('Asia/Jakarta'));
-$updateTime = $date->format('d/m/Y G:H:i');
+$updateTime = timereadable($drawResult["lastUpdated"]);
+
 ?>
 
 <?php
@@ -27,7 +35,7 @@ $updateTime = $date->format('d/m/Y G:H:i');
 ?>
 
 <h1>Hasil Draw Klik4D</h1>
-<pre>Last Update : <?php echo $updateTime." GMT+7"; ?></pre>
+<pre>Last Update : <?php echo $updateTime["full"]." GMT+7"; ?></pre>
 
 <style>
     .table-border {
@@ -67,7 +75,12 @@ $updateTime = $date->format('d/m/Y G:H:i');
     foreach ($drawResult["resultsArray"] as $row) :
 ?>
     <tr>
-        <td><?php echo $row["time"]; ?></td>
+        <td>
+            <?php 
+                $drawTime = timereadable($row["time"]);
+                echo $drawTime["date"]; 
+            ?>
+        </td>
         <td><?php echo $row["pool"]; ?></td>
         <td class="result"><?php echo $row["result"]; ?></td>
     </tr>
