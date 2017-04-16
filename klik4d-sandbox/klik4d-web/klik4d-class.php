@@ -40,8 +40,9 @@ class Klik4d {
     }
 	
     public function get_result() {
-		// Method to get draw result from object
-		$result = $this->drawJson;
+		// Method to get draw result from jsonfile
+        $file = $this->jsonFile;
+        $result = json_decode(file_get_contents($file), true);
 		return $result;
 	}
 
