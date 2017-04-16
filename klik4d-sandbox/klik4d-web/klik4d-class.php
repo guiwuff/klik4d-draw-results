@@ -12,11 +12,13 @@ class Klik4d {
     private $xpathquery; // xpathquery
     private $drawResult = array(); // draw result in array
     private $drawJson; // encode drawResult into json
+    private $jsonFile; // .json filename
 
     function __construct() {
         // Class construct
         $this->url = 'http://www.klik4d.com/login.aspx';
 		$this->ua = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36';
+        $this->jsonFile = 'klik4d-draw.json';
         $this->fetch_data();
         $this->xpathquery = '//table[@id="tblResult"]/tr';
         $result = $this->fetchResult;
@@ -152,11 +154,18 @@ class Klik4d {
     **/
 
     private function data_json() {
+        $updatedtime = strtotime("Now");
+        $file = $this->jsonFile;
         $result = $this->drawResult;
-        $jsonres = json_encode($result);
-
+        $stored = array(
+            "lastUpdated" => $updatedtime,
+            "resultsArray" => $result
+        );
+        $jsonres = json_encode($stored);
+        // update drawJson 
         $this->drawJson = $jsonres;
-
+        // save to .json file
+        file_put_contents($file,$jsonres);
         return;
     }
 
