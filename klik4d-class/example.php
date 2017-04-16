@@ -88,3 +88,33 @@ $updateTime = timereadable($drawResult["lastUpdated"]);
     endforeach;
 ?>
 </table>
+
+<hr>
+
+<h1>SG 45 Draw Result</h1>
+<pre>Draw Date : <?php $drawTime = timereadable($drawResult["resultsArray"][0]["time"]);
+                echo $drawTime["date"];?></pre>
+
+<div>
+<?php
+    // Display using image file
+    // Function to convert number to image
+    function numtoimg($number){
+        $imagefolder = "images-number/";
+        $srcimage = $imagefolder.$number.".png";
+        return $srcimage;
+    }
+
+?>
+<?php
+    $resultsg45 = $drawResult["resultsArray"][0]["result"];
+    $i=0;
+    while ( $i<4 ) :
+        $number = substr($resultsg45,$i,1);
+?>
+        <img src="<?php echo numtoimg($number);?>">
+<?php
+        $i++;
+    endwhile; 
+    ?>
+</div>
