@@ -6,7 +6,7 @@
 
 [https://en.wikipedia.org/wiki/TL;DR](https://en.wikipedia.org/wiki/TL;DR)
 
-**You need to:**
+**You need to:**
 
 *  Have at least 2 file in one folder `klik4d-cron.php` and `klik4d-class.php`
 *  Able to call the cron file from linux cron using `wget -O /dev/null http://klik4d.local:3300/klik4d-cron.php` - please do replace the url with your own url
