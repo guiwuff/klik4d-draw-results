@@ -3,7 +3,7 @@
 *   To develop and test klik4d classes and methods
 *   Standalone class ver 1.0
 *   <gui.wuff@gmail.com> 16/04/2017
-*   This is development standalone class, releases can be found in folder klik4d-class
+*   This is released standalone class
 **/
 
 class Klik4d {
